@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmIrExample", "CrmIrExample\CrmIrExample.csproj", "{938A893D-9D11-4969-828F-8A8F9D3816AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{436351A2-0C58-4E38-BDF7-DC16F37EB769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436351A2-0C58-4E38-BDF7-DC16F37EB769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436351A2-0C58-4E38-BDF7-DC16F37EB769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436351A2-0C58-4E38-BDF7-DC16F37EB769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938A893D-9D11-4969-828F-8A8F9D3816AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938A893D-9D11-4969-828F-8A8F9D3816AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938A893D-9D11-4969-828F-8A8F9D3816AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938A893D-9D11-4969-828F-8A8F9D3816AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
