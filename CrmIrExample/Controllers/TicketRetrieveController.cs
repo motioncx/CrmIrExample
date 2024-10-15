@@ -30,20 +30,32 @@ public class TicketRetrieveController : ControllerBase
         var authToUse = _apiKeyProd;
         var baseEndpoint = "https://api.motioncxapps.com";
 
+        // add auth handler (can likely move this and the refit to a service extension and add as DI
         AuthHandler authHandler = new AuthHandler(authToUse);
+        // create refit logic to get ticketserviceproxy proxy
         var ticketService = RestService.For<ITicketServiceProxy>(new HttpClient(authHandler)
         {
             BaseAddress = new Uri(baseEndpoint)
         });
 
+        // if you want to get details on ticket(s)
+        var getTicketsTest = await ticketService.GetVTicketsAsync(new ReadTicketsQuery()
+        {
+            TenantId = 3, CreatedAt = new DateTime(2024, 10, 11), CreatedTo = new DateTime(2024, 10, 15), MaxResultCount = 25, SkipCount = 0,
+            QueueIds = [1, 2, 3]
+        });
 
+        
+        // call specific ticket id
         var getTicketInfo = await ticketService.GetV1TicketAsync(new ReadTicketQueryCommand()
         {
             TicketId = (long)ticketId, TenantId = 3
         });
 
+        // check if success
         if (getTicketInfo.IsSuccessStatusCode)
         {
+            // get details to get interactionid
             var ticketInfo = getTicketInfo.Content;
             var contactInfo = ticketInfo.Contact;
 
@@ -56,6 +68,7 @@ public class TicketRetrieveController : ControllerBase
                 throw new Exception(errorMessage);
             }
             
+            // create refit logic to get interacitonservice proxy
             var interactionServiceProxy = RestService.For<IInteractionServiceProxy>(new HttpClient(authHandler)
             {
                 BaseAddress = new Uri(baseEndpoint)

@@ -27,4 +27,8 @@ public interface ITicketServiceProxy
     Task<ApiResponse<FileResult>> GetTicketFileStreamAsync(
         ReadAttachmentQuery request,
         CancellationToken cancellationToken = default (CancellationToken));
+    
+    [Get("/crm/main/v1/tickets")]
+    Task<ApiResponse<TicketQueryResponse>> GetVTicketsAsync(
+        [FromQuery] ReadTicketsQuery request);
 }
